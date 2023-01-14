@@ -62,6 +62,7 @@ func (c Collector) Collect(ch chan<- prometheus.Metric) {
 	}
 
 	// Collect metrics
+	c.logger.Info("collecting data")
 	res, err := c.client.ListUsers(ctx, &briq.ListUsersRequest{})
 	if err != nil {
 		c.logger.WithError(err).Error("error calling briq api")
